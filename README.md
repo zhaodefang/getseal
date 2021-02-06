@@ -16,9 +16,11 @@ $ python3 getseal.py -i source.png -o out.png
 
 #### Result
 
-![233](source.png)
+![233](result.png)
 
-![out](out.png)
+
+
+![](out.png)
 
 #### Quote
 
@@ -29,4 +31,4 @@ $ python3 getseal.py -i source.png -o out.png
 
 #### 印章来源 (百度图片)
 
-![tp](ly.png)
+![tp](1.png)
