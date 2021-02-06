@@ -20,18 +20,25 @@ def transparent_back(img):
 def action(inputfile, outputfile):
   np.set_printoptions(threshold=np.inf)
   image=cv2.imread(inputfile)
-
+  
   hue_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-  low_range = np.array([150, 103, 100])
+  # cv2.imshow("s", hue_image)
+  # cv2.waitKey(0)
+
+  low_range = np.array([150,24,150])
   high_range = np.array([180, 255, 255])
   th = cv2.inRange(hue_image, low_range, high_range)
   index1 = th == 255
+  
   # save image
   img = np.zeros(image.shape, np.uint8)
+  
   img[:, :] = (255,255,255)
   img[index1] = image[index1]#(0,0,255)
+  # cv2.imshow("s", img)
+  # cv2.waitKey(0)
+  
   cv2.imwrite(outputfile, img, [int(cv2.IMWRITE_PNG_COMPRESSION), 9])
-
   # delete rgb(255,255,255)
   img1 = Image.open(outputfile)
   img1=transparent_back(img1)
